@@ -6,7 +6,7 @@ var todoFunctions = {
   // todoFunctions.generateId() will give you a unique id
   // You do not need to understand the implementation of this function.
   generateId: (function() {
-    var idCounter = 0;
+    var idCounter = Number(localStorage.getItem("id"));
 
     function incrementCounter() {
       return (idCounter += 1);
@@ -30,7 +30,9 @@ var todoFunctions = {
     // returns a new array, it should contain todos with the newTodo added to the end.
     // add an id to the newTodo. You can use the generateId function to create an id.
     // hint: array.concat
-    var NewtoDo = [{id: todoFunctions.generateId() , description: descrip, done:false}];
+    var id = todoFunctions.generateId();
+    window.localStorage.id = id;
+    var NewtoDo = [{id: id , description: descrip, done:false}];
     var tempToDo = todoFunctions.cloneArrayOfObjects(todos);
     return tempToDo.concat(NewtoDo);
   },

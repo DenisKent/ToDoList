@@ -1,30 +1,36 @@
 /* Page formatting */
+@import url("https://fonts.googleapis.com/css?family=Boogaloo|Source+Sans+Pro");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+html{
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
 body{
   background-color: rgb(68, 226, 156);
-  font-size: 18px;
   margin:0px;
-  font-family: 'Source Sans Pro', sans-serif;
-  padding-bottom: 25px;
+  padding-bottom: 3rem;
 }
 h1{
-  background-color: rgb(68, 226, 156);
   color: rgb(30, 20, 20);
   text-align: center;
   font-size: 40px;
   margin:0px;
-  padding: 2% 0% 2% 0%;
+  padding: 0.5rem 0rem;
   font-family: 'Boogaloo', sans-serif;
   letter-spacing:1px;
 }
 footer{
-  position:absolute;
+  position:fixed;
   bottom:0;
   padding-left: 2%;
-  width:99%;
-  height:25px;   /* Height of the footer */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  /* width:99%; */
+  /* height:25px; */
   background:rgba(209, 214, 222, 0.66);
-  font-size: 10px;
-  padding-top: 10px;
+  font-size: 0.8rem;
+  /* margin-top: 80px; */
 /* To Do list fomratting */
 }
 li{
@@ -45,13 +51,13 @@ ul{
   padding-right: 5px;
 }
 ul >li:hover{
-  background-color: rgba(190, 190, 190, 0.66);
-  border: 0.5px solid rgb(151, 148, 154);
+  background-color: rgba(174, 198, 207,0.5);
+  border: 0.5px solid rgb(220, 220, 220,0.6);
   border-radius: 8px;
 }
 .tasks-field{
   background-color: rgba(228, 230, 223, 0.86);
-  width: 70%;
+  width: 90%;
   margin: auto;
   border-radius: 8px;
 }
@@ -60,37 +66,25 @@ ul >li:hover{
   padding-left: 10px;
   padding-bottom: 6px;
 }
-.delbutton{
-  background-color: red;
-  border-radius: 50%;
-  color: white;
-  padding: 1px 5px 1px 5px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 0 3px gray;
-
+.delbutn{
+  padding:2px;
+  color: black;
+  border: 0px;
+  background-color: transparent;
+  font-size: 1em;
 }
-.delbutton:hover{
-  background-color:pink;
+.delbutn:hover{
+  color: red;
 
 }
 
 .markbutton{
-  background-color: gray;
-  border-radius: 50%;
-  color: white;
   margin-left: 10px;
-  padding: 1px 5px 1px 5px;
-  text-align: center;
-  text-decoration: none;
   font-size: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 0 3px gray;
   background-color: #eee;
+  margin-top: auto;
+  margin-bottom: auto;
+
 }
 
 /* Form formatting */

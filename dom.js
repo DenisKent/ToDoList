@@ -3,11 +3,18 @@
 // it keeps everything inside hidden from the rest of our application
 (function() {
   // This is the dom node where we will keep our todo
+
+
   var container = document.getElementById("todo-container");
   var addTodoForm = document.getElementById("add-todo");
   var sort_switch = document.getElementById("sort-switch");
 
-  var state = []; // this is our initial todoList
+  if (!localStorage.getItem("myList")) {
+    state = [];
+    window.localStorage.id = 0;
+  } else {
+    state = JSON.parse(localStorage.getItem("myList"));
+  }
 
   // This function takes a todo, it returns the DOM node representing that todo
   var createTodoNode = function(todo) {
@@ -22,14 +29,17 @@
 
     // this adds the delete button
 
-    var deleteButtonNode = document.createElement("button");
-    deleteButtonNode.className = "delbutton";
-    deleteButtonNode.textContent = "X";
-    deleteButtonNode.addEventListener("click", function(event) {
+    var delButnNode = document.createElement("button");
+    delButnNode.className = "delbutn";
+    var iconNode = document.createElement("i");
+    iconNode.className = "fa fa-trash fa-2x";
+    delButnNode.appendChild(iconNode);
+
+    delButnNode.addEventListener("click", function(event) {
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
-    todoNode.appendChild(deleteButtonNode);
+    todoNode.appendChild(delButnNode);
 
     // add markTodo button
 
@@ -71,6 +81,7 @@
     if(sort_switch.checked){
       state = todoFunctions.sortTodos(newState);
     } else {state = newState;}
+    window.localStorage.myList = JSON.stringify(state);
     renderState(state);
   };
 
