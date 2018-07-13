@@ -26,12 +26,9 @@ footer{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   width: 100%;
-  /* width:99%; */
-  /* height:25px; */
   background:rgba(209, 214, 222, 0.66);
   font-size: 0.8rem;
-  /* margin-top: 80px; */
-/* To Do list fomratting */
+
 }
 li{
   display: grid;
@@ -41,9 +38,8 @@ li{
   margin-top: 1px;
   margin-bottom: 1px;
   padding: 2px 4px 2px 4px;
-}
-li > span{
   word-break: break-all;
+  align-items: center;
 }
 ul{
   padding-top: 50px;
@@ -61,30 +57,35 @@ ul >li:hover{
   margin: auto;
   border-radius: 8px;
 }
-
 #add-todo{
   padding-left: 10px;
   padding-bottom: 6px;
 }
 .delbutn{
-  padding:2px;
-  color: black;
+  color: rgb(100, 100, 100);
   border: 0px;
   background-color: transparent;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 .delbutn:hover{
-  color: red;
-
+  color: rgb(186, 62, 66);
 }
-
-.markbutton{
-  margin-left: 10px;
-  font-size: 10px;
-  background-color: #eee;
-  margin-top: auto;
-  margin-bottom: auto;
-
+.checkbx{
+  border: 0px;
+  background-color: transparent;
+  padding: auto;
+  font-size: 1.2rem;
+}
+.checkedbutn{
+  color: rgb(17, 157, 35);
+  margin:auto;
+}
+.uncheckedbutn{
+  color: rgb(190, 190, 190);
+  margin:auto;
+}
+.uncheckedbutn:hover{
+  color: rgb(115, 182, 144);
 }
 
 /* Form formatting */
@@ -107,7 +108,7 @@ ul >li:hover{
   padding-top: 6px;
   padding-bottom: 6px;
   border: 1px solid grey;
-    border-radius: 4px;
+  border-radius: 4px;
 }
 
 /* =======Filter Button======= */
@@ -117,18 +118,17 @@ ul >li:hover{
   margin-right:3px;
   margin-top:3px;
 }
-.switch {
+#sortButtn .switch {
   position: relative;
   display: inline-block;
   width: 50px;
   height: 30px;
   vertical-align: middle;
-
 }
 
-.switch > input {display:none;}
+#sortButtn .switch > input {display:none;}
 
-.slider {
+#sortButtn .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -141,7 +141,7 @@ ul >li:hover{
   border-radius: 34px;
 }
 
-.slider:before {
+#sortButtn .slider:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -153,21 +153,21 @@ ul >li:hover{
   transition: .4s;
 }
 
-input:checked + .slider {
+#sortButtn input:checked + .slider {
   background-color: #013a69;
 }
 
-input:focus + .slider {
+#sortButtn input:focus + .slider {
   box-shadow: 0 0 1px #013a69;
 }
 
-input:checked + .slider:before {
+#sortButtn input:checked + .slider:before {
   -webkit-transform: translateX(20px);
   -ms-transform: translateX(20px);
   transform: translateX(20px);
 }
 
-.slider.round:before {
+#sortButtn .slider.round:before {
   border-radius: 50%;
 }
 @media only screen and (min-width:480px){

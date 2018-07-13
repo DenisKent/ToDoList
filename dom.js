@@ -1,6 +1,7 @@
 // part 2 linking it all together
 // The function here is called an iife,
 // it keeps everything inside hidden from the rest of our application
+
 (function() {
   // This is the dom node where we will keep our todo
 
@@ -31,9 +32,9 @@
 
     var delButnNode = document.createElement("button");
     delButnNode.className = "delbutn";
-    var iconNode = document.createElement("i");
-    iconNode.className = "fa fa-trash fa-2x";
-    delButnNode.appendChild(iconNode);
+    var trashNode = document.createElement("i");
+    trashNode.className = "fa fa-trash";
+    delButnNode.appendChild(trashNode);
 
     delButnNode.addEventListener("click", function(event) {
       var newState = todoFunctions.deleteTodo(state, todo.id);
@@ -42,21 +43,22 @@
     todoNode.appendChild(delButnNode);
 
     // add markTodo button
+    var markButnNode = document.createElement("button");
+    markButnNode.setAttribute("type", "checkbox");
+    markButnNode.className = "checkbx";
+    var tickNode = document.createElement("i");
+    tickNode.className = "fa fa-check-square uncheckedbutn";
+    if(todo.done){
+      tickNode.className = "fa fa-check-square checkedbutn";
+    }
+    markButnNode.appendChild(tickNode);
 
-    var markButtonNode = document.createElement("input");
-    markButtonNode.setAttribute("type", "checkbox");
-    markButtonNode.className = "markbutton";
-
-    markButtonNode.addEventListener("click", function(event) {
+    markButnNode.addEventListener("click", function(event) {
       var newButt = todoFunctions.markTodo(state, todo.id);
       update(newButt);
     });
-    markButtonNode.checked = todo.done;
-    todoNode.appendChild(markButtonNode);
-
-    // add classes for css
-
-    todoNode.className += " todoli";
+    markButnNode.checked = todo.done;
+    todoNode.appendChild(markButnNode);
     return todoNode;
   };
 

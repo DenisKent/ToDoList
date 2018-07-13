@@ -1,17 +1,33 @@
-// Part 1. Fill in any missing parts of the todoFunction object!
-// you can access these on todo.todoFunctions
-// For part one we expect you to use tdd
-
+// class LocalStorageMock {
+//   constructor() {
+//     this.store = {};
+//   }
+//
+//   clear() {
+//     this.store = {};
+//   }
+//
+//   getItem(key) {
+//     return this.store[key] || null;
+//   }
+//
+//   setItem(key, value) {
+//     this.store[key] = value.toString();
+//   }
+//
+//   removeItem(key) {
+//     delete this.store[key];
+//   }
+// };
+//   global.localStorage = new LocalStorageMock;
 var todoFunctions = {
-  // todoFunctions.generateId() will give you a unique id
-  // You do not need to understand the implementation of this function.
+
+
   generateId: (function() {
     var idCounter = Number(localStorage.getItem("id"));
-
     function incrementCounter() {
       return (idCounter += 1);
     }
-
     return incrementCounter;
   })(),
 
@@ -26,13 +42,15 @@ var todoFunctions = {
 
 
   addTodo: function(todos, descrip) {
-    // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
-    // returns a new array, it should contain todos with the newTodo added to the end.
-    // add an id to the newTodo. You can use the generateId function to create an id.
-    // hint: array.concat
     var id = todoFunctions.generateId();
     window.localStorage.id = id;
-    var NewtoDo = [{id: id , description: descrip, done:false}];
+    var NewtoDo =
+    [
+      {
+        id: id ,
+        description: descrip,
+        done:false
+      }];
     var tempToDo = todoFunctions.cloneArrayOfObjects(todos);
     return tempToDo.concat(NewtoDo);
   },
