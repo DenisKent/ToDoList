@@ -9,10 +9,10 @@
   var container = document.getElementById("todo-container");
   var addTodoForm = document.getElementById("add-todo");
   var sort_switch = document.getElementById("sort-switch");
+  var editing = false;
 
   if (!localStorage.getItem("myList")) {
     state = [];
-    window.localStorage.id = 0;
   } else {
     state = JSON.parse(localStorage.getItem("myList"));
   }
@@ -20,16 +20,28 @@
   // This function takes a todo, it returns the DOM node representing that todo
   var createTodoNode = function(todo) {
     var todoNode = document.createElement("li");
-    // you will need to use addEventListener
-
-    // add span holding description
-    // console.log(todo.descripton);
     var spanText = document.createElement("span");
     spanText.textContent = todo.description;
     todoNode.appendChild(spanText);
+    //edit button
+    spanText.addEventListener("click", function(event) {
+      editing = true;
+      var todoText = spanText.textContent;
+      var editInputContainer = document.createElement("form");
+      editInputContainer.innerHTML ='<input id="edit" type="text" maxlength="100" autocomplete="off" value="' + todoText +'" required/>';
+      todoNode.replaceChild(editInputContainer, spanText);
+
+      editInputContainer.addEventListener("submit", function(event) {
+        // upon pressing enter
+        event.preventDefault();
+        editing = false; // no longer editing
+        todoText = event.target[0].value; // save new text in variable
+        var newState = todoFunctions.editTodo(state, todoText, todo.id);
+        update(newState);
+      });
+    });
 
     // this adds the delete button
-
     var delButnNode = document.createElement("button");
     delButnNode.className = "delbutn";
     var trashNode = document.createElement("i");

@@ -22,14 +22,9 @@
 //   global.localStorage = new LocalStorageMock;
 var todoFunctions = {
 
-
-  generateId: (function() {
-    var idCounter = Number(localStorage.getItem("id"));
-    function incrementCounter() {
-      return (idCounter += 1);
-    }
-    return incrementCounter;
-  })(),
+  generateId: function() {
+    return Date.now();
+  },
 
   //cloneArrayOfObjects will create a copy of the todos array
   //changes to the new array don't affect the original
@@ -39,11 +34,8 @@ var todoFunctions = {
     });
   },
 
-
-
   addTodo: function(todos, descrip) {
     var id = todoFunctions.generateId();
-    window.localStorage.id = id;
     var NewtoDo =
     [
       {
@@ -93,6 +85,25 @@ var todoFunctions = {
 
     return tempToDo.sort(function(x,y){
       return Number(x.done) - Number(y.done);
+    });
+  },
+  convertTimestamp: function(timestamp) {
+    var d = new Date(timestamp);
+		var yyyy = d.getFullYear(),
+		mm = ('0' + (d.getMonth() + 1)).slice(-2),	// Months are zero based. Add leading 0.
+		dd = ('0' + d.getDate()).slice(-2),
+		hh = ('0' + d.getHours()).slice(-2),
+		min = ('0' + d.getMinutes()).slice(-2),
+		time;
+  	time = yyyy+ '/' + mm + '/' + dd + ' - ' + hh + ':' + min;
+  	return time;
+  },
+  editTodo: function(todos, newTodoText, idToEdit) {
+    return todos.map(function(item) {
+      if (item.id === idToEdit) {
+        item.description = newTodoText;
+      }
+      return item;
     });
   }
 };

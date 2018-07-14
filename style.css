@@ -32,9 +32,8 @@ footer{
 }
 li{
   display: grid;
-  grid-template-columns: 8fr 1fr 1fr;
+  grid-template-columns:8fr 1fr 1fr;
   grid-column-gap: 5px;
-  border: 1px solid transparent;
   margin-top: 1px;
   margin-bottom: 1px;
   padding: 2px 4px 2px 4px;
@@ -48,7 +47,6 @@ ul{
 }
 ul >li:hover{
   background-color: rgba(174, 198, 207,0.5);
-  border: 0.5px solid rgb(220, 220, 220,0.6);
   border-radius: 8px;
 }
 .tasks-field{
@@ -65,7 +63,7 @@ ul >li:hover{
   color: rgb(100, 100, 100);
   border: 0px;
   background-color: transparent;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 .delbutn:hover{
   color: rgb(186, 62, 66);
