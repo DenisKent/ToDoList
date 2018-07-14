@@ -1,6 +1,6 @@
 # KhanToDoList
 
-FACN4 week 2 project to do list. Please visit our site [here](https://facn4.github.io/KhanToDoList).
+FACN4 week 2 project to do list. Please visit our site [here](https://deniskent.github.io/ToDoList/).
 
 ## What - User Stories
 
